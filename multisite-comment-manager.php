@@ -1,15 +1,14 @@
 <?php
 /*
 Plugin Name: Multisite Comment Manager
-Plugin URI: http://uncommoncontent.com/wordpress/plugins/multisite-comment-manager
 Description: Provide multisite admins with a quick overview of recent comments on all sites.
-Version: 0.1
+Version: 0.2
 Author: Jennifer M. Dodd
 Author URI: http://bajada.net
 */
 
 /*
-	Copyright 2011 Jennifer M. Dodd (email: jmdodd@gmail.com)
+	Copyright 2011-2014 Jennifer M. Dodd (email: jmdodd@gmail.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
