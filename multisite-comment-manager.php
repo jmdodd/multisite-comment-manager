@@ -26,10 +26,6 @@ Author URI: http://bajada.net
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-if ( ! defined( 'UCC_MCM_COMMENTS' ) )
-	define ( 'UCC_MCM_COMMENTS', '7' );
-
-
 function ucc_mcm_admin_view() {
 	$current_user = wp_get_current_user();
 	if ( 0 == $current_user->ID ) {
@@ -50,7 +46,7 @@ function ucc_mcm_admin_view() {
 				$blog = $blogs[$defined_blog];
 				switch_to_blog( $defined_blog );
 
-				$number = UCC_MCM_COMMENTS;
+				$number = 7;
 				switch( $defined_blog ) {
 					case 6:
 						$number = 10;
