@@ -176,7 +176,7 @@ class UCC_Multisite_Comments_Manager {
 									<td class='response column-response'>
 									<div class="response-links">
 									<span class="post-com-count-wrapper"><?php echo $post_link; ?><br />
-									<?php WP_List_Table::comments_bubble( $post->ID, $pending_comments ); ?>
+									<?php $this->comments_bubble( $post->ID, $pending_comments ); ?>
 									</span>
 									<a href='<?php echo get_permalink( $post->ID ); ?>'>#</a>
 									</div>
@@ -208,6 +208,27 @@ class UCC_Multisite_Comments_Manager {
 
 	function admin_menu() {
 		add_submenu_page( 'index.php', 'Multisite Comments', 'Multisite Comments', 'moderate_comments', 'multisite-comments', array( $this, 'admin_view' ) );
+	}
+
+	/**
+	 * Display a comment count bubble
+	 * See WP_List_Table->comments_bubble() in wp-admin/includes/class-wp-list-table.php
+	 *
+	 * @param int $post_id The post ID
+	 * @param int $pending_comments Number of pending comments
+	 */
+	function comments_bubble( $post_id, $pending_comments ) {
+		$pending_phrase = sprintf( __( '%s pending' ), number_format( $pending_comments ) );
+
+		if ( $pending_comments ) {
+			echo '<strong>';
+		}
+
+		echo "<a href='" . esc_url( add_query_arg( 'p', $post_id, admin_url( 'edit-comments.php' ) ) ) . "' title='" . esc_attr( $pending_phrase ) . "' class='post-com-count'><span class='comment-count'>" . number_format_i18n( get_comments_number() ) . "</span></a>";
+
+		if ( $pending_comments ) {
+			echo '</strong>';
+		}
 	}
 }
 
